@@ -7,7 +7,7 @@ import AppHeader from '@/components/AppHeader.vue'
   <div class="container">
     <app-header />
     <div class="content">
-      <RouterView />
+      <router-view />
     </div>
   </div>
 </template>

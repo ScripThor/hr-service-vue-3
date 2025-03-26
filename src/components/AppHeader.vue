@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useUserStore } from '@/stores/user.ts'
+
+const userStore = useUserStore()
+
 const items = [
   {
     label: 'Авторизация',
@@ -26,10 +30,16 @@ const items = [
 <template>
   <app-menubar :model="items" class="menu">
     <template #item="{ item, props }">
-      <router-link to="item.path" class="flex align-items-center" v-bind="props.action">
+      <router-link :to="item.path" class="flex align-items-center" v-bind="props.action">
         <span :class="item.icon" class="p-menuitem-icon" />
         <span class="ml-2">{{ item.label }}</span>
       </router-link>
+    </template>
+    <template #end>
+      <span class="flex align-items-center menu-exit">
+        <span class="pi pi-sign-out p-menuitem-icon" />
+        <span class="ml-2">Выход</span>
+      </span>
     </template>
   </app-menubar>
 </template>
